@@ -1,1 +1,202 @@
-<!doctype html><html lang="es-CO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ingresar | AtribuTIA Colombia</title><meta name="description" content="Accede al espacio de análisis de campañas de AtribuTIA."><meta property="og:type" content="website"><meta property="og:title" content="Ingresar | AtribuTIA Colombia"><meta property="og:description" content="Accede al espacio de análisis de campañas de AtribuTIA."><meta property="og:locale" content="es_CO"><link rel="canonical" href="https://atributia.co/login"><link rel="stylesheet" href="/styles.css"><script defer src="/app.js"></script></head><body><header class="top"><div class="wrap nav"><a class="logo" href="/">atrib<b>utia</b><sup style="font-size:10px;color:#8b8fa3"> CO</sup></a><nav class="links"><a href="/#producto">Producto</a><a href="/#como-funciona">Cómo funciona</a><a href="/compare">Comparar herramientas</a><a href="/#precios">Precios</a></nav><div style="display:flex;gap:9px"><a class="btn ghost" href="/login">Ingresar</a><a class="btn" href="/app">Probar gratis</a></div></div></header><main class="wrap"><section class="auth"><span class="eyebrow">TU ESPACIO DE MARKETING</span><h1 style="font:800 30px Manrope">Ingresar a AtribuTIA</h1><p class="muted">Acceso local de demostración.</p><form id="loginform"><label>Correo electrónico</label><input type="email" id="email" required placeholder="tu@empresa.com"><label>Contraseña</label><input type="password" id="password" required minlength="4" placeholder="Mínimo 4 caracteres"><button class="btn" style="width:100%">Continuar</button></form><p class="notice" id="authmsg">Este perfil se guarda solo en el navegador. No se crea una cuenta real ni se procesa la contraseña en un servidor.</p><p>¿Primera vez? <a href="/app" style="color:#7157f2;font-weight:700">Prueba el analizador gratis</a></p></section></main><footer class="footer"><div class="wrap"><div class="logo">atrib<span style="color:#a99bff">utia</span> CO</div><p>Atribución de marketing en español, pensada para equipos que venden en Colombia.</p><div style="display:flex;gap:22px;flex-wrap:wrap"><a href="/app">Analizar campañas</a><a href="/compare">Comparar plataformas</a><a href="/login">Ingresar</a></div><p class="notice" style="margin-top:25px">AtribuTIA es una demostración funcional independiente. No está afiliada ni conectada oficialmente a Cometly ni a las plataformas comparadas.</p></div></footer></body></html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ingresar | AtribuTIA Colombia</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Arial,sans-serif;
+  background:
+    radial-gradient(circle at 20% 20%,#272052 0,transparent 35%),
+    radial-gradient(circle at 85% 85%,#182b48 0,transparent 35%),
+    #080d18;
+  color:#f5f7ff;
+  display:flex;
+  flex-direction:column;
+}
+nav{
+  width:100%;
+  max-width:1150px;
+  margin:auto;
+  padding:25px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{font-size:24px;font-weight:800;color:white}
+.logo span{color:#8b7cff}
+nav a{color:#c3cce0;text-decoration:none;font-size:14px}
+main{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:30px 18px 60px;
+}
+.login-box{
+  width:100%;
+  max-width:440px;
+  padding:38px;
+  border:1px solid #303b56;
+  border-radius:22px;
+  background:rgba(16,24,41,.96);
+  box-shadow:0 25px 80px rgba(0,0,0,.35);
+}
+.icon{
+  width:58px;
+  height:58px;
+  border-radius:16px;
+  background:#29234e;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  margin-bottom:25px;
+}
+h1{font-size:32px;margin:0 0 12px;letter-spacing:-1px}
+.subtitle{color:#aeb9ce;line-height:1.6;font-size:14px;margin-bottom:30px}
+label{display:block;font-size:13px;font-weight:bold;margin-bottom:9px;color:#dce3f1}
+input{
+  width:100%;
+  padding:15px;
+  border:1px solid #34415d;
+  background:#0b1221;
+  border-radius:10px;
+  color:white;
+  font-size:15px;
+  outline:none;
+  margin-bottom:21px;
+}
+input:focus{border-color:#8b7cff}
+button{
+  width:100%;
+  padding:16px;
+  background:linear-gradient(100deg,#7967ff,#9b6dff);
+  border:0;
+  border-radius:10px;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+button:active{transform:scale(.99)}
+.note{
+  margin-top:22px;
+  padding:13px;
+  background:#171f33;
+  border:1px solid #303b56;
+  border-radius:10px;
+  color:#aeb9ce;
+  font-size:12px;
+  line-height:1.6;
+}
+#authmsg{
+  margin-top:16px;
+  color:#a9e6c0;
+  font-size:13px;
+  line-height:1.5;
+}
+.back{
+  display:block;
+  text-align:center;
+  margin-top:24px;
+  color:#b8aaff;
+  text-decoration:none;
+  font-size:14px;
+}
+footer{
+  text-align:center;
+  padding:20px;
+  color:#75829b;
+  font-size:12px;
+}
+@media(max-width:500px){
+  .login-box{padding:27px 22px}
+  h1{font-size:28px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Atribu<span>TIA</span></div>
+  <a href="../">Volver al inicio</a>
+</nav>
+
+<main>
+  <section class="login-box">
+    <div class="icon">✦</div>
+
+    <h1>Bienvenido de nuevo</h1>
+
+    <p class="subtitle">
+      Ingresa tus datos para acceder a tu espacio de AtribuTIA Colombia.
+    </p>
+
+    <form id="loginform">
+      <label for="email">Correo electrónico</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="nombre@empresa.com"
+        autocomplete="email"
+        required
+      >
+
+      <label for="password">Contraseña</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Ingresa tu contraseña"
+        autocomplete="current-password"
+        required
+      >
+
+      <button type="submit">Ingresar a mi cuenta</button>
+    </form>
+
+    <div id="authmsg" aria-live="polite"></div>
+
+    <div class="note">
+      Esta versión utiliza un acceso de demostración local.
+      Todavía no existe autenticación real ni cuentas protegidas en servidor.
+    </div>
+
+    <a class="back" href="../">← Regresar a AtribuTIA</a>
+  </section>
+</main>
+
+<footer>
+  © 2026 AtribuTIA Colombia · Todos los derechos reservados
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  const form=document.getElementById('loginform');
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+
+    const email=document.getElementById('email').value.trim();
+    const password=document.getElementById('password').value;
+
+    if(!email || !password){
+      return;
+    }
+
+    localStorage.setItem('atributia_demo_profile',email);
+
+    document.getElementById('authmsg').textContent=
+      'Demostración: perfil local guardado para '+email+
+      '. No se creó una cuenta real ni se verificó la contraseña.';
+  });
+});
+</script>
+
+</body>
+</html>
