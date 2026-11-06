@@ -8,7 +8,6 @@
   <title>Analizador de campañas | AtribuTIA Colombia</title>
 
   <meta name="description" content="Calcula ROAS, CPA e ingresos por campaña en pesos colombianos con importación CSV.">
-
   <meta property="og:type" content="website">
   <meta property="og:title" content="Analizador de campañas | AtribuTIA Colombia">
   <meta property="og:description" content="Calcula ROAS, CPA e ingresos por campaña en COP.">
@@ -16,8 +15,14 @@
 
   <link rel="canonical" href="https://santiarenas2808-crypto.github.io/atributia-colombia/app/">
 
-  <!-- Rutas corregidas para GitHub Pages -->
   <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    body {
+      visibility: hidden;
+    }
+  </style>
+
   <script defer src="../app.js"></script>
 </head>
 
@@ -65,6 +70,7 @@
 
         <div class="dashhead">
           <h3 style="margin:0">1. Configura tu análisis</h3>
+
           <button class="btn ghost" id="demo">
             Cargar datos de ejemplo
           </button>
@@ -216,6 +222,49 @@
 
   </div>
 </footer>
+
+<!-- VERIFICACIÓN DE SESIÓN SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+(async function () {
+  const SUPABASE_URL =
+    "https://qrvrdhxenhcyqhgzxari.supabase.co";
+
+  const SUPABASE_KEY =
+    "sb_publishable_Ry6F0Ug8dB3BOmiYUxeK1A_FG2seiHw";
+
+  if (!window.supabase) {
+    document.body.style.visibility = "visible";
+    alert("No se pudo conectar con el servicio de acceso. Intenta recargar la página.");
+    return;
+  }
+
+  const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+  const { data, error } =
+    await supabaseClient.auth.getSession();
+
+  if (error || !data.session) {
+    window.location.replace("../login/");
+    return;
+  }
+
+  document.body.style.visibility = "visible";
+
+  supabaseClient.auth.onAuthStateChange(
+    function (event) {
+      if (event === "SIGNED_OUT") {
+        window.location.replace("../login/");
+      }
+    }
+  );
+
+})();
+</script>
 
 </body>
 </html>
