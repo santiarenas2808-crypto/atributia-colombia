@@ -10,15 +10,36 @@
   <meta name="description" content="Mide ROAS, CPA e ingresos atribuidos de tus campañas en Colombia. Analiza Meta Ads, Google Ads y otros canales en pesos colombianos.">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="AtribuTIA Colombia | Atribución y analítica de marketing">
-  <meta property="og:description" content="Mide ROAS, CPA e ingresos atribuidos de tus campañas en Colombia.">
+  <meta property="og:title" content="AtribuTIA Colombia">
+  <meta property="og:description" content="Atribución y analítica de marketing para Colombia.">
   <meta property="og:locale" content="es_CO">
 
-  <link rel="canonical" href="https://santiarenas2808-crypto.github.io/atributia-colombia/">
-
-  <!-- Archivos del proyecto -->
   <link rel="stylesheet" href="./styles.css">
-  <script defer src="./app.js"></script>
+
+  <style>
+    .account-actions {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+
+    .account-status {
+      font-size: 12px;
+      color: #16a878;
+      margin-right: 5px;
+    }
+
+    .logout-button {
+      cursor: pointer;
+      font: inherit;
+      border: 1px solid rgba(255,255,255,.2);
+      background: transparent;
+      color: inherit;
+      border-radius: 10px;
+      padding: 10px 14px;
+    }
+  </style>
 </head>
 
 <body>
@@ -28,17 +49,17 @@
 
     <a class="logo" href="./">
       atrib<b>utia</b>
-      <sup style="font-size:10px;color:#8b8fa3">CO</sup>
+      <sup style="font-size:10px;color:#8b8fa3"> CO</sup>
     </a>
 
     <nav class="links">
-      <a href="./#producto">Producto</a>
-      <a href="./#como-funciona">Cómo funciona</a>
+      <a href="#producto">Producto</a>
+      <a href="#como-funciona">Cómo funciona</a>
       <a href="./compare/">Comparar herramientas</a>
-      <a href="./#precios">Precios</a>
+      <a href="#precios">Precios</a>
     </nav>
 
-    <div style="display:flex;gap:9px">
+    <div class="account-actions" id="accountActions">
       <a class="btn ghost" href="./login/">Ingresar</a>
       <a class="btn" href="./app/">Probar gratis</a>
     </div>
@@ -48,7 +69,6 @@
 
 <main>
 
-  <!-- PRESENTACIÓN -->
   <section class="hero">
     <div class="wrap">
 
@@ -61,16 +81,20 @@
 
       <p>
         Conecta inversión, campañas y ventas en una sola vista.
-        Calcula ROAS, costo por adquisición y rentabilidad en pesos colombianos,
-        con atribución clara para tomar mejores decisiones.
+        Calcula ROAS, costo por adquisición y rentabilidad en pesos
+        colombianos, con atribución clara para tomar mejores decisiones.
       </p>
 
       <div class="actions">
-        <a class="btn" href="./app/">Analizar mis campañas →</a>
-        <a class="btn ghost" href="./compare/">Ver comparativa de herramientas</a>
+        <a class="btn" href="./app/">
+          Analizar mis campañas →
+        </a>
+
+        <a class="btn ghost" href="./compare/">
+          Ver comparativa de herramientas
+        </a>
       </div>
 
-      <!-- PANEL DE RESULTADOS -->
       <div class="dashboard">
 
         <div class="dashhead">
@@ -113,18 +137,31 @@
         </div>
 
         <div class="chart">
-          <div class="bar" style="height:42%"><span>Meta</span></div>
-          <div class="bar" style="height:76%"><span>Google</span></div>
-          <div class="bar" style="height:55%"><span>TikTok</span></div>
-          <div class="bar" style="height:30%"><span>Orgánico</span></div>
-          <div class="bar" style="height:65%"><span>Otros</span></div>
+          <div class="bar" style="height:42%">
+            <span>Meta</span>
+          </div>
+
+          <div class="bar" style="height:76%">
+            <span>Google</span>
+          </div>
+
+          <div class="bar" style="height:55%">
+            <span>TikTok</span>
+          </div>
+
+          <div class="bar" style="height:30%">
+            <span>Orgánico</span>
+          </div>
+
+          <div class="bar" style="height:65%">
+            <span>Otros</span>
+          </div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- PRODUCTO -->
   <section class="section" id="producto">
     <div class="wrap">
 
@@ -171,7 +208,6 @@
     </div>
   </section>
 
-  <!-- CÓMO FUNCIONA -->
   <section class="section" id="como-funciona" style="background:#fff">
     <div class="wrap">
 
@@ -215,7 +251,6 @@
     </div>
   </section>
 
-  <!-- PRECIOS -->
   <section class="section" id="precios">
     <div class="wrap">
 
@@ -223,8 +258,8 @@
 
       <p class="sub">
         La versión inicial funciona con archivos CSV y datos de ejemplo.
-        Las integraciones directas requieren credenciales
-        y autorización de cada plataforma.
+        Las integraciones directas requieren credenciales y autorización
+        de cada plataforma.
       </p>
 
       <div class="card" style="max-width:600px;margin-top:25px">
@@ -252,7 +287,6 @@
 
 </main>
 
-<!-- PIE DE PÁGINA -->
 <footer class="footer">
   <div class="wrap">
 
@@ -279,6 +313,75 @@
 
   </div>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+(async function () {
+
+  const SUPABASE_URL =
+    "https://qrvrdhxenhcyqhgzxari.supabase.co";
+
+  const SUPABASE_KEY =
+    "sb_publishable_Ry6F0Ug8dB3BOmiYUxeK1A_FG2seiHw";
+
+  const actions = document.getElementById("accountActions");
+
+  if (!window.supabase) {
+    console.error("No se pudo cargar Supabase.");
+    return;
+  }
+
+  const client = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+  async function updateAccount() {
+    const { data, error } = await client.auth.getSession();
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    if (data.session) {
+      actions.innerHTML = `
+        <span class="account-status">● Sesión activa</span>
+        <a class="btn" href="./app/">Mi cuenta</a>
+        <button class="logout-button" id="logoutButton">
+          Cerrar sesión
+        </button>
+      `;
+
+      document.getElementById("logoutButton")
+        .addEventListener("click", async function () {
+          const { error } = await client.auth.signOut();
+
+          if (error) {
+            alert("No se pudo cerrar la sesión. Intenta de nuevo.");
+            return;
+          }
+
+          window.location.reload();
+        });
+
+    } else {
+      actions.innerHTML = `
+        <a class="btn ghost" href="./login/">Ingresar</a>
+        <a class="btn" href="./login/">Crear cuenta</a>
+      `;
+    }
+  }
+
+  await updateAccount();
+
+  client.auth.onAuthStateChange(function () {
+    updateAccount();
+  });
+
+})();
+</script>
 
 </body>
 </html>
