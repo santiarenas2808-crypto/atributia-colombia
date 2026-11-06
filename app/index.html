@@ -1,1 +1,221 @@
-<!doctype html><html lang="es-CO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Analizador de campañas | AtribuTIA Colombia</title><meta name="description" content="Calcula ROAS, CPA e ingresos por campaña en COP con importación CSV."><meta property="og:type" content="website"><meta property="og:title" content="Analizador de campañas | AtribuTIA Colombia"><meta property="og:description" content="Calcula ROAS, CPA e ingresos por campaña en COP con importación CSV."><meta property="og:locale" content="es_CO"><link rel="canonical" href="https://atributia.co/app"><link rel="stylesheet" href="/styles.css"><script defer src="/app.js"></script></head><body><header class="top"><div class="wrap nav"><a class="logo" href="/">atrib<b>utia</b><sup style="font-size:10px;color:#8b8fa3"> CO</sup></a><nav class="links"><a href="/#producto">Producto</a><a href="/#como-funciona">Cómo funciona</a><a href="/compare">Comparar herramientas</a><a href="/#precios">Precios</a></nav><div style="display:flex;gap:9px"><a class="btn ghost" href="/login">Ingresar</a><a class="btn" href="/app">Probar gratis</a></div></div></header><main><section class="section"><div class="wrap"><span class="eyebrow">ESPACIO DE TRABAJO · COLOMBIA</span><h1 style="font:800 40px Manrope;letter-spacing:-1.5px">Analizador de campañas</h1><p class="sub">Carga tus datos de marketing para calcular el retorno real. Puedes probarlo con información de ejemplo.</p><div class="tool"><div class="dashhead"><h3 style="margin:0">1. Configura tu análisis</h3><button class="btn ghost" id="demo">Cargar datos de ejemplo</button></div><div class="fields" style="margin-top:18px"><div class="field"><label>Tipo de análisis</label><select id="model"><option value="aggregate">Resultados agregados por campaña</option></select></div><div class="field"><label>Moneda</label><select id="currency"><option value="COP">Peso colombiano (COP)</option></select></div><div class="field"><label>Periodo</label><select id="period"><option>Últimos 30 días</option><option>Últimos 7 días</option><option>Este mes</option></select></div></div><div class="drop"><strong>2. Importa tu archivo CSV</strong><p class="muted">Columnas requeridas: campaign, channel, spend, revenue, conversions. Opcional: clicks, impressions.</p><input type="file" id="csv" accept=".csv,text/csv"></div><div class="field"><label>O agrega una campaña manualmente</label><div class="fields"><input id="name" placeholder="Nombre de campaña"><input id="spend" type="number" placeholder="Inversión COP"><input id="revenue" type="number" placeholder="Ingresos COP"></div><div class="fields" style="margin-top:10px"><input id="conversions" type="number" placeholder="Ventas / conversiones"><input id="channel" placeholder="Canal (Meta Ads)"><button class="btn" id="add">Agregar campaña</button></div></div></div><div class="result" id="results"><div class="dashboard"><div class="dashhead"><div><h2 style="font-size:25px;margin:0">Resultados de atribución</h2><span class="muted" id="rowcount"></span></div><button class="btn ghost" id="export">Exportar resultados CSV</button></div><div class="metrics" id="metrics"></div><div class="verdict" id="verdict"></div><h3>Rendimiento por campaña</h3><div class="tablewrap"><table><thead><tr><th>Campaña</th><th>Canal</th><th>Inversión</th><th>Ingresos</th><th>Ventas</th><th>ROAS</th><th>CPA</th></tr></thead><tbody id="rows"></tbody></table></div></div></div><p class="notice" style="margin-top:15px">Privacidad: los CSV se procesan localmente en tu navegador; esta versión no envía los archivos a un servidor. Los resultados dependen de la calidad de los datos cargados y no representan una medición independiente de las plataformas publicitarias.</p></div></section></main><footer class="footer"><div class="wrap"><div class="logo">atrib<span style="color:#a99bff">utia</span> CO</div><p>Atribución de marketing en español, pensada para equipos que venden en Colombia.</p><div style="display:flex;gap:22px;flex-wrap:wrap"><a href="/app">Analizar campañas</a><a href="/compare">Comparar plataformas</a><a href="/login">Ingresar</a></div><p class="notice" style="margin-top:25px">AtribuTIA es una demostración funcional independiente. No está afiliada ni conectada oficialmente a Cometly ni a las plataformas comparadas.</p></div></footer></body></html>
+
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Analizador de campañas | AtribuTIA Colombia</title>
+
+  <meta name="description" content="Calcula ROAS, CPA e ingresos por campaña en pesos colombianos con importación CSV.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Analizador de campañas | AtribuTIA Colombia">
+  <meta property="og:description" content="Calcula ROAS, CPA e ingresos por campaña en COP.">
+  <meta property="og:locale" content="es_CO">
+
+  <link rel="canonical" href="https://santiarenas2808-crypto.github.io/atributia-colombia/app/">
+
+  <!-- Rutas corregidas para GitHub Pages -->
+  <link rel="stylesheet" href="../styles.css">
+  <script defer src="../app.js"></script>
+</head>
+
+<body>
+
+<header class="top">
+  <div class="wrap nav">
+
+    <a class="logo" href="../">
+      atrib<b>utia</b>
+      <sup style="font-size:10px;color:#8b8fa3"> CO</sup>
+    </a>
+
+    <nav class="links">
+      <a href="../#producto">Producto</a>
+      <a href="../#como-funciona">Cómo funciona</a>
+      <a href="../compare/">Comparar herramientas</a>
+      <a href="../#precios">Precios</a>
+    </nav>
+
+    <div style="display:flex;gap:9px">
+      <a class="btn ghost" href="../login/">Ingresar</a>
+      <a class="btn" href="./">Probar gratis</a>
+    </div>
+
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+
+      <span class="eyebrow">ESPACIO DE TRABAJO · COLOMBIA</span>
+
+      <h1 style="font:800 40px Manrope;letter-spacing:-1.5px">
+        Analizador de campañas
+      </h1>
+
+      <p class="sub">
+        Carga tus datos de marketing para calcular el retorno real.
+        Puedes probarlo con información de ejemplo.
+      </p>
+
+      <div class="tool">
+
+        <div class="dashhead">
+          <h3 style="margin:0">1. Configura tu análisis</h3>
+          <button class="btn ghost" id="demo">
+            Cargar datos de ejemplo
+          </button>
+        </div>
+
+        <div class="fields" style="margin-top:18px">
+
+          <div class="field">
+            <label>Tipo de análisis</label>
+            <select id="model">
+              <option value="aggregate">
+                Resultados agregados por campaña
+              </option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Moneda</label>
+            <select id="currency">
+              <option value="COP">Peso colombiano (COP)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Periodo</label>
+            <select id="period">
+              <option>Últimos 30 días</option>
+              <option>Últimos 7 días</option>
+              <option>Este mes</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="drop">
+          <strong>2. Importa tu archivo CSV</strong>
+
+          <p class="muted">
+            Columnas requeridas: campaign, channel, spend,
+            revenue, conversions.
+            <br>
+            Opcional: clicks, impressions.
+          </p>
+
+          <input type="file" id="csv" accept=".csv,text/csv">
+        </div>
+
+        <div class="field">
+          <label>O agrega una campaña manualmente</label>
+
+          <div class="fields">
+            <input id="name" placeholder="Nombre de campaña">
+            <input id="spend" type="number" placeholder="Inversión COP">
+            <input id="revenue" type="number" placeholder="Ingresos COP">
+          </div>
+
+          <div class="fields" style="margin-top:10px">
+            <input id="conversions" type="number" placeholder="Ventas / conversiones">
+            <input id="channel" placeholder="Canal (Meta Ads)">
+
+            <button class="btn" id="add">
+              Agregar campaña
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="result" id="results">
+
+        <div class="dashboard">
+
+          <div class="dashhead">
+            <div>
+              <h2 style="font-size:25px;margin:0">
+                Resultados de atribución
+              </h2>
+              <span class="muted" id="rowcount"></span>
+            </div>
+
+            <button class="btn ghost" id="export">
+              Exportar resultados CSV
+            </button>
+          </div>
+
+          <div class="metrics" id="metrics"></div>
+
+          <div class="verdict" id="verdict"></div>
+
+          <h3>Rendimiento por campaña</h3>
+
+          <div class="tablewrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Campaña</th>
+                  <th>Canal</th>
+                  <th>Inversión</th>
+                  <th>Ingresos</th>
+                  <th>Ventas</th>
+                  <th>ROAS</th>
+                  <th>CPA</th>
+                </tr>
+              </thead>
+
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+      <p class="notice" style="margin-top:15px">
+        Privacidad: los CSV se procesan localmente en tu navegador;
+        esta versión no envía los archivos a un servidor.
+
+        Los resultados dependen de la calidad de los datos cargados
+        y no representan una medición independiente de las
+        plataformas publicitarias.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+
+    <div class="logo">
+      atrib<span style="color:#a99bff">utia</span> CO
+    </div>
+
+    <p>
+      Atribución de marketing en español,
+      pensada para equipos que venden en Colombia.
+    </p>
+
+    <div style="display:flex;gap:22px;flex-wrap:wrap">
+      <a href="./">Analizar campañas</a>
+      <a href="../compare/">Comparar plataformas</a>
+      <a href="../login/">Ingresar</a>
+    </div>
+
+    <p class="notice" style="margin-top:25px">
+      AtribuTIA es una demostración funcional independiente.
+      No está afiliada ni conectada oficialmente a Cometly
+      ni a las plataformas comparadas.
+    </p>
+
+  </div>
+</footer>
+
+</body>
+</html>
